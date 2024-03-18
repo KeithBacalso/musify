@@ -30,30 +30,31 @@ class _ViewSongPageState extends State<ViewSongPage> {
     _setAudio();
 
     _audioPlayer.onPlayerStateChanged.listen((state) {
-      if (mounted) {
-        setState(() {
-          _isPlaying = state.toString() == PlayerState.playing.toString();
-        });
-      }
+      setState(() {
+        _isPlaying = state.toString() == PlayerState.playing.toString();
+      });
     });
 
     _audioPlayer.onDurationChanged.listen((newDuration) {
-      if (mounted) {
-        setState(() {
-          _duration = newDuration;
-        });
-      }
+      setState(() {
+        _duration = newDuration;
+      });
     });
 
     _audioPlayer.onPositionChanged.listen((newPosition) {
-      if (mounted) {
-        setState(() {
-          _position = newPosition;
-        });
-      }
+      setState(() {
+        _position = newPosition;
+      });
     });
 
     super.initState();
+  }
+
+  @override
+  void setState(VoidCallback fn) {
+    if (mounted) {
+      super.setState(fn);
+    }
   }
 
   @override
