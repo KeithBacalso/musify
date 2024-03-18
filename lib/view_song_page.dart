@@ -229,7 +229,7 @@ class _ViewSongPageState extends State<ViewSongPage> {
     final yummySong = AssetSource('audio/yummy.mp3');
     final sourceFuture = _audioPlayer.setSource(yummySong);
     final playFuture = _audioPlayer.play(yummySong);
-    final releaseModeFuture = _audioPlayer.setReleaseMode(ReleaseMode.release);
+    final releaseModeFuture = _audioPlayer.setReleaseMode(ReleaseMode.stop);
 
     await Future.wait([sourceFuture, playFuture, releaseModeFuture]);
   }
