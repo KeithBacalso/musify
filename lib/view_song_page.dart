@@ -1,6 +1,7 @@
 import 'package:advanced_icon/advanced_icon.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:iconly/iconly.dart';
 
 enum PlayerState {
@@ -83,7 +84,10 @@ class _ViewSongPageState extends State<ViewSongPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Center(child: Image.asset('assets/images/justine_bieber.jpeg')),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset('assets/images/justine_bieber.jpeg'),
+            ),
             const SizedBox(height: 40),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
